@@ -99,7 +99,7 @@ do
   vim.g.maplocalleader = ' '
 
   -- Set to true if you have a Nerd Font installed and selected in the terminal
-  vim.g.have_nerd_font = false
+  vim.g.have_nerd_font = true
 
   -- [[ Setting options ]]
   --  See `:help vim.o`
@@ -251,6 +251,16 @@ do
     group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
     callback = function() vim.hl.on_yank() end,
   })
+
+  -- Ergo-L personnal optimizations
+  vim.keymap.set('n', '+', 'gj', { desc = 'Preserve current column' })
+  vim.keymap.set('n', '-', 'gk', { desc = 'preserve current column' })
+  vim.keymap.set('n', ',', ';', { desc = 'because inverted compared to qwerty' })
+  vim.keymap.set('n', ';', ',', { desc = 'because inverted compared to qwerty' })
+  vim.keymap.set('n', '<C-c>', '<C-i>', { desc = 'jump-motion' })
+  vim.keymap.set('n', 'Y', 'y$', { desc = 'more coherent with C and D' })
+  vim.keymap.set('n', 'U', '<C-r>', { desc = 'U is confusing in classic vim' })
+  vim.keymap.set('n', 'Q', 'q:', { desc = 'command history' })
 end
 
 -- ============================================================
